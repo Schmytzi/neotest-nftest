@@ -21,14 +21,14 @@ local function parse_test_result(xml, result)
 		return {
 			status = "passed",
 			short = "",
-			errors = xml["failure"][1],
+			errors = "",
 			output = result.output,
 		}
 	else
 		return {
 			status = "failed",
 			short = xml["failure"]["_attr"]["message"],
-			errors = xml["failure"],
+			errors = xml["failure"][1],
 			output = result.output,
 		}
 	end
@@ -42,8 +42,8 @@ end
 local function parse_namespace_result(xml, result, tree)
 	local results = {}
 	local names_to_ids = {}
-	for child in tree:children() do
-		names_to_ids[child:data().name] = child:data().id
+	for _, child in tree:iter() do
+		names_to_ids[child.name] = child.id
 	end
 	for _, test in ipairs(xml["testcase"]) do
 		local test_result = parse_test_result(test, result)
