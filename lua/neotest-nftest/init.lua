@@ -108,6 +108,8 @@ local function discover_positions(file_path)
 		end
 	end
 
+  -- test suite definition should be a top-level juxt_function_call
+  -- sometimes, the groovy parser gets confused and parses the test suite as identifier + closure
 	local query = [[
     (source_file
       (juxt_function_call
@@ -120,6 +122,16 @@ local function discover_positions(file_path)
             ) 
           )
         )
+      ) @namespace.definition
+    )
+
+    (source_file
+      (closure
+        (juxt_function_call
+          function: (identifier) @funcname
+          args: (argument_list (string (string_content) @namespace.name))
+          (#eq? @funcname "name")
+        ) 
       ) @namespace.definition
     )
 
