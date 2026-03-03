@@ -2,6 +2,8 @@
 
 A [neotest](https://github.com/nvim-neotest/neotest) adapter for [nf-test](https://www.nf-test.com/), the testing framework for [Nextflow](https://www.nextflow.io/) pipelines.
 
+![Screenshot of passing nf-test suite](./doc/img/screenshot.png)
+
 ## Requirements
 
 - [Neovim](https://neovim.io/) >= 0.9
@@ -62,10 +64,10 @@ require("neotest").setup({
 
 ### Options
 
-| Option       | Type       | Default    | Description                                              |
-|--------------|------------|------------|----------------------------------------------------------|
+| Option       | Type       | Default    | Description                                                             |
+|--------------|------------|------------|-------------------------------------------------------------------------|
 | `profile`    | `string`   | `"docker"` | The nf-test profile to use when running tests (`--profile +<profile>`). |
-| `extra_args` | `string[]` | `{}`       | Extra arguments appended to the nf-test command.        |
+| `extra_args` | `string[]` | `{}`       | Extra arguments appended to the nf-test command.                        |
 
 ## Usage
 
