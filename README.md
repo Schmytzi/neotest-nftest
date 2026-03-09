@@ -15,7 +15,7 @@ A [neotest](https://github.com/nvim-neotest/neotest) adapter for [nf-test](https
 ## Installation
 
 1. Make sure that the groovy parser for nvim-treesitter is installed: `:TSInstall groovy`
-2. Add neotest-nftest to your config:
+2. Install using your plugin manager of choice. Example for lazy:
 
 ```lua
 return {

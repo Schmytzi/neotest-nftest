@@ -99,7 +99,7 @@ local function discover_positions(file_path)
 	)
 	local output = vim.gsplit(data.stdout, "\n")
 
-	---@type table<integer, string>
+	---@type string[]
 	local test_hashes = {} --- table
 	-- filter output table by regex
 	for line in output do
@@ -154,7 +154,7 @@ local function discover_positions(file_path)
 		require_namespaces = true,
 	})
 
-	---@type table<integer, neotest.Position>
+	---@type neotest.Position[]
 	local sorted_tests = {}
 	for _, position in positions:iter() do
 		if position.type == "test" then
